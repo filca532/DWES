@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Inversión a Plazo Fijo</title>
+</head>
+<body>
+    <h2>Introduce los datos</h2>
+    <form action="calculo.php" method="POST">
+        <label for="capital_inicial">Capital Inicial:</label>
+        <input type="number" id="capital_inicial" name="capital_inicial_usuario" required>
+        <br><br>
+        <label for="interes">Interes:</label>
+        <input type="number" id="interes" name="interes_usuario" required>
+        <br><br>
+        <label for="anyos_inversion">Años de Inversión:</label>
+        <input type="number" id="anyos_inversion" name="anyos_inversion_usuario" required>
+        <br><br>
+        <input type="submit" value="Calcular">
+    </form>
+</body>
+</html>
