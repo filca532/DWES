@@ -1,0 +1,295 @@
+/* -------------------- */
+/* Variables y Reset Básico */
+/* -------------------- */
+
+:root {
+    /* Paleta de colores */
+    --color-primary: #8e44ad; /* Púrpura/Violeta oscuro */
+    --color-secondary: #3498db; /* Azul vibrante */
+    --color-background: #ecf0f1; /* Gris claro suave */
+    --color-card-bg: #ffffff; /* Blanco puro para tarjetas */
+    --color-success: #2ecc71; /* Verde para completado */
+    --color-error: #e74c3c; /* Rojo para errores */
+    --color-text-dark: #2c3e50; /* Gris oscuro para texto */
+    --color-text-light: #fdfdfd; /* Blanco roto para texto sobre oscuro */
+
+    /* Sombras */
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lift: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* -------------------- */
+/* Diseño Principal y Contenedor */
+/* -------------------- */
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-text-light);
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-lift);
+    border-radius: 0 0 15px 15px; /* Bordes redondeados solo abajo */
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 5px;
+}
+
+/* -------------------- */
+/* Formulario de Nueva Tarea */
+/* -------------------- */
+
+.task-form {
+    background-color: var(--color-card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.task-form input[type="text"],
+.task-form textarea,
+.task-form input[type="file"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.task-form input:focus,
+.task-form textarea:focus {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+}
+
+.task-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Estilo del botón principal (Añadir Tarea) */
+.btn-primary {
+    background-color: var(--color-success);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.1s;
+    display: inline-block;
+    width: 100%; /* Opcional: para que ocupe todo el ancho del contenedor del formulario */
+}
+
+.btn-primary:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* -------------------- */
+/* Listado de Tareas (Tarjetas) */
+/* -------------------- */
+
+.task-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.task-item {
+    background-color: var(--color-card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 5px solid var(--color-secondary); /* Indicador visual */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.task-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lift);
+}
+
+/* Tarea Completada */
+.task-item.completed {
+    border-left: 5px solid var(--color-success);
+    opacity: 0.7;
+    background-color: #f7f9f9; /* Color más suave para completadas */
+    transition: all 0.5s;
+}
+
+.task-item.completed h3 {
+    text-decoration: line-through;
+    color: #95a5a6; /* Gris más suave para texto completado */
+}
+
+/* Contenido de la Tarea */
+.task-content h3 {
+    margin-top: 0;
+    color: var(--color-primary);
+    font-size: 1.25rem;
+}
+
+.task-content p {
+    margin: 0.5rem 0 1rem 0;
+    font-size: 0.95rem;
+    color: var(--color-text-dark);
+}
+
+/* Sección de Acciones */
+.task-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    border-top: 1px dashed #ddd;
+    padding-top: 1rem;
+}
+
+.task-actions a {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+/* Botón/Enlace de Completar */
+.btn-complete {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+.btn-complete:hover {
+    background-color: #2980b9;
+}
+
+/* Botón/Enlace de Descarga de Adjunto */
+.btn-attachment {
+    background-color: #f39c12; /* Naranja para adjunto */
+    color: var(--color-text-light);
+}
+
+.btn-attachment:hover {
+    background-color: #e67e22;
+}
+
+/* Estilo para mensajes */
+.message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.message.success {
+    background-color: rgba(46, 204, 113, 0.15); /* Verde con opacidad */
+    color: var(--color-success);
+    border: 1px solid var(--color-success);
+}
+
+.message.error {
+    background-color: rgba(231, 76, 60, 0.15); /* Rojo con opacidad */
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+}
+
+/* -------------------- */
+/* Pie de Página (Footer) */
+/* -------------------- */
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+    width: 100%;
+}
+
+/* -------------------- */
+/* Media Queries para Responsividad */
+/* -------------------- */
+
+@media (max-width: 600px) {
+    .container {
+        margin: 1rem auto;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .task-item {
+        padding: 1rem;
+    }
+
+    .task-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .task-actions a {
+        text-align: center;
+    }
+}
