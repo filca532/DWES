@@ -20,15 +20,13 @@ class Task
 
     public function markCompleted()
     {
-
+        $this->completed = true;
     }
 
-    public function getInfo()
+    public function markUncompleted()
     {
-
+        $this->completed = false;
     }
-
-
 
     public function getTitle(): string
     {
