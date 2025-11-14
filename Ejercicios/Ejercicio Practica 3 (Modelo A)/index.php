@@ -51,7 +51,7 @@ if (isset($_POST['añadir_tarea'])) {
 
             $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 
-            $allowedExtensions = ["jpeg", "png", "pdf", "plai", "docx"];
+            $allowedExtensions = ["jpeg", "png", "pdf", "plain", "docx"];
 
             if (in_array($fileType, $allowedMimeTypes) && in_array($fileExtension, $allowedExtensions)) {
                 if ($fileSize <= $maxSize) {
@@ -79,3 +79,5 @@ include 'head.php';
 include 'body.php';
 
 include 'foot.php';
+
+?>

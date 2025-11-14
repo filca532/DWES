@@ -1,0 +1,12 @@
+body {
+   background-color: #8fc2fa;
+}
+
+.lista-paises {
+   display: flex;
+   list-style: none;
+}
+
+.lista-paises li {
+   padding-right: 20px;
+}
