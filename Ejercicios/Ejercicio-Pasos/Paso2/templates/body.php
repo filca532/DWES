@@ -11,13 +11,13 @@
     </div>
 
     <?php
-    include __DIR__ . "/lista.php";
+    include __DIR__ . '/../views/lista.php';
     ?>
 
-<?php elseif ($action === 'add'): include __DIR__ . "/create.php" ?>
+<?php elseif ($action === 'add'): include __DIR__ . '/../views/create.php'; ?>
 
 
-<?php elseif ($action === 'edit' && $cliente): include __DIR__ . "/editar.php" ?>
+<?php elseif ($action === 'edit' && $cliente): include __DIR__ . '/../views/editar.php'; ?>
     
 
 <?php else: ?>

@@ -12,7 +12,7 @@ class ClienteModel
     public function getAll(): array
     {
         $consulta = $this->pdo->prepare("SELECT * FROM clientes ORDER BY id DESC");
-
+        $consulta->execute();
         return $consulta->fetchAll();
     }
 
@@ -20,7 +20,7 @@ class ClienteModel
     {
         $consulta = $this->pdo->prepare("SELECT * FROM clientes WHERE id = ?");
         $consulta->execute([$id]);
-        $r = $consulta->fetchAll();
+        $r = $consulta->fetch();
 
         return $r ?: null;
     }
