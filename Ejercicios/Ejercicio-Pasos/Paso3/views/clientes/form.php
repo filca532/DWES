@@ -5,7 +5,7 @@ require __DIR__ . "/../../templates/header.php";
 $isEditing = ($action === 'edit' && isset($cliente));
 $titulo = $isEditing ? "✏️ Modificar Cliente #" . htmlspecialchars($cliente['id']) : "➕ Agregar Nuevo Cliente";
 $descripcion = $isEditing ? "Actualice la información del cliente seleccionado." : "Complete el formulario para registrar un nuevo cliente en el sistema.";
-$actionUrl = $isEditing ? "?action=edit" : "?action=add";
+$actionUrl = $isEditing ? "?action=edit&id=" . $cliente['id'] : "?action=add";
 $botonTexto = $isEditing ? "💾 Guardar Cambios" : "💾 Crear Cliente";
 ?>
 

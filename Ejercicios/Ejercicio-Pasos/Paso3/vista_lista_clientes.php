@@ -1,4 +1,3 @@
 <?php
-
-include "templates/body.php"; 
+// include "templates/body.php"; 
 ?>

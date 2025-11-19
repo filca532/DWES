@@ -38,7 +38,6 @@ class ClienteController
         $id = (int) ($_GET['id'] ?? 0);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $id = (int) ($_POST['id'] ?? 0);
             $datos = [
                 'nombre' => $_POST['nombre'] ?? '',
                 'email' => $_POST['email'] ?? '',
