@@ -17,17 +17,9 @@ class Conexion
         }
     }
 
-    public function query(string $sql, array $params = []): array
+    public function getPdo(): PDO
     {
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute($params);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function execute(string $sql, array $params = []): bool
-    {
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute($params);
+        return $this->pdo;
     }
 }
 ?>
