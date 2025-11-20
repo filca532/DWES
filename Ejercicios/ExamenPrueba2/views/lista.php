@@ -23,7 +23,7 @@
                         <td><strong><?= htmlspecialchars($libro['id']) ?></strong></td>
                         <td class="portada-cell">
                             <?php if (!empty($libro['portada'])): ?>
-                                <img src="<?= strpos($libro['portada'], 'http') === 0 ? htmlspecialchars($libro['portada']) : '/temp/DWES/Ejercicios/ExamenPrueba2/' . htmlspecialchars($libro['portada']) ?>" alt="<?= htmlspecialchars($libro['titulo']) ?>" class="portada-img">
+                                <img src="<?= strpos($libro['portada'], 'http') === 0 ? htmlspecialchars($libro['portada']) : htmlspecialchars($libro['portada']) ?>" alt="<?= htmlspecialchars($libro['titulo']) ?>" class="portada-img">
                             <?php else: ?>
                                 <span class="no-portada">—</span>
                             <?php endif; ?>

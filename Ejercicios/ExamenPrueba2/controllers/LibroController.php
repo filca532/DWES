@@ -24,7 +24,7 @@ class LibroController
                 $datos = [
                     'titulo' => trim($_POST['titulo']),
                     'autor' => trim($_POST['autor']),
-                    'portada_ruta' => null
+                    'portada' => null
                 ];
 
                 if (isset($_FILES['portada']) && $_FILES['portada']['error'] === UPLOAD_ERR_OK) {
@@ -76,7 +76,17 @@ class LibroController
             throw new Exception("Error al subir la imagen");
         }
 
-        return 'uploads/' . $nombre_archivo;
+        // Obtener la ruta relativa desde la raíz del servidor web
+        $rutaRelativa = $this->obtenerRutaRelativaWeb() . 'uploads/' . $nombre_archivo;
+        return $rutaRelativa;
+    }
+
+    private function obtenerRutaRelativaWeb(): string
+    {
+        // Obtener la ruta del script actual relativa al document root
+        $scriptName = $_SERVER['SCRIPT_NAME']; // ej: /temp/Ejercicios/ExamenPrueba2/index.php
+        $rutaProyecto = dirname($scriptName); // ej: /temp/Ejercicios/ExamenPrueba2
+        return $rutaProyecto . '/';
     }
 
     public function edit()
