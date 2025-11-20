@@ -1,5 +1,8 @@
 <div class="table-container">
-    <h2>Platos listados</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2>Platos listados</h2>
+        <a href="exportar.php?tipo=platos" class="btn btn-secondary">📊 Exportar CSV</a>
+    </div>
     <table class="table">
         <thead>
             <tr>

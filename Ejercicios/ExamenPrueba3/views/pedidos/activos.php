@@ -1,5 +1,8 @@
 <div class="table-container" style="margin-top: 40px;">
-    <h2>📋 Pedidos Activos</h2>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <h2>📋 Pedidos Activos</h2>
+        <a href="exportar.php?tipo=pedidos" class="btn btn-secondary">📊 Exportar CSV</a>
+    </div>
     <table class="table">
         <thead>
             <tr>

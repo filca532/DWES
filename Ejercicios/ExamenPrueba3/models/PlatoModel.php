@@ -59,4 +59,23 @@ class PlatoModel
 
         return $consulta->execute([$id]);
     }
+
+    public function getEstadisticasPlatos(): array
+    {
+        $consulta = $this->pdo->prepare("
+            SELECT 
+                p.id,
+                p.nombre,
+                p.categoria,
+                p.precio,
+                COUNT(pd.id) as total_pedidos,
+                COALESCE(SUM(pd.total), 0) as ingresos
+            FROM platos p
+            LEFT JOIN pedidos pd ON p.id = pd.plato_id AND pd.fecha_entrega IS NOT NULL
+            GROUP BY p.id
+            ORDER BY p.nombre
+        ");
+        $consulta->execute();
+        return $consulta->fetchAll();
+    }
 }
